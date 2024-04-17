@@ -97,7 +97,7 @@ require_once "../Controlador/postulados.controlador.php";
                                 <td>Postulados Descartados</td>
                                 <td> { <?php echo $matrizDescartados ?>  }</td>
                                 <td>                           
-                                    <a href="postula.php?op=view&id=<?php echo $key['id_persona']; ?>" >
+                                     <a href="postula.php?op=view&id=<?php echo $key['id_persona']; ?>" >
                                         <button type="submit" class="btn btn-primary" data-toggle="modal">VER</button>
                                     </a>    
                                 </td>
