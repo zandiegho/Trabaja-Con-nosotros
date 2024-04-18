@@ -22,7 +22,7 @@ require_once "../Controlador/postulados.controlador.php";
     <main>
         <div class="container">
             <div class="tittle text-center" style="margin: 12px;">
-                <H1>HOLA SOY LA VISTA PRINCIPAL</H1>
+                <H1>Bienvenido</H1>
             </div>
 
             <div class="row text-center">
