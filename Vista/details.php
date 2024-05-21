@@ -25,7 +25,7 @@ $rutas -> inicio();
         <?php if($datos){} ?>
         <!-- Inicia el contenedor -->
             <div class="container">
-                <h4 class="text-center mt-5">Listado de Postulaciones </h4>
+                <h4 class="text-center mt-5">Datos del postulante </h4>
                 <!-- Tabla nivel 1 -->
                 <table class="table table-striped table-hover text-center">
                     <thead>
@@ -33,7 +33,7 @@ $rutas -> inicio();
                           <th scope="col">ID</th>
                           <th scope="col">Nombre del postulante</th>
                           <th scope="col">Apellidos del postulante</th>
-                          <th scope="col">Cargo a ocupar</th>
+                          <th scope="col">Cargo a Ocupar</th>
                           <th scope="col">Estado</th>
                           </tr>
                     </thead>
@@ -45,8 +45,21 @@ $rutas -> inicio();
                             <td><?=$datos["apellido_persona"]; ?></td>
                             <td>Vinservidor</td>
                             
+                            <?php 
+                                if($datos["descartado"] == "si"){
+                                    $estado = "DESCARTADO";
+                                    $clase = "badge bg-danger";
+                                }else if($datos["descartado"] == "no"){
+                                    $estado = "PENDIENTE";
+                                    $clase = "badge bg-success";
+                                }else{
+                                    $estado = "NO HAY DATOS";
+                                    $clase = "badge bg-warning";
+                                }
+                            ?>
+
                             <td>                               
-                                <span class="badge bg-success">PENDIENTE</span>
+                                <span class="<?php echo $clase ?>"> <?php echo $estado ?> </span>
                             </td>
 
                            </tr>
@@ -128,12 +141,12 @@ $rutas -> inicio();
                 <div class="row text-center"> <!-- fila para documentos de a 2 columnas -->
                     <div class="col-md-6">
                         <h4>Cedula frontal</h4>
-                        <img src="<?=$datos['Cedula_frontal']?>" alt="cedula frontal <?=$datos["nombre_persona"]." ".$datos["apellido_persona"] ?>" srcset="">
+                        <img src="/../../<?=$datos['Cedula_frontal']?>" alt="cedula frontal <?=$datos["nombre_persona"]." ".$datos["apellido_persona"] ?>" srcset="">
                     </div> <!-- fin col -->
 
                     <div class="col-md-6">
                         <h4>Cedula Posterior</h4>
-                        <img src="<?=$datos['cedula_posterior']?>" alt="cedula posterior <?=$datos["nombre_persona"]." ".$datos["apellido_persona"] ?>" srcset="">
+                        <img src="/../../<?=$datos['cedula_posterior']?>" alt="cedula posterior <?=$datos["nombre_persona"]." ".$datos["apellido_persona"] ?>" srcset="">
                     </div> <!-- fin col -->
 
                 </div><!-- fin row cedula-->
@@ -141,12 +154,12 @@ $rutas -> inicio();
                 <div class="row text-center"> <!-- fila para documentos de a 2 columnas -->
                     <div class="col-md-6">
                         <h4>Licencia frontal</h4>
-                        <img src="<?=$datos['licencia_frontal']?>" alt="Licencia de Conducción frontal <?=$datos["nombre_persona"]." ".$datos["apellido_persona"] ?>" srcset="">
+                        <img src="/../../<?=$datos['licencia_frontal']?>" alt="Licencia de Conducción frontal <?=$datos["nombre_persona"]." ".$datos["apellido_persona"] ?>" srcset="">
                     </div> <!-- fin col -->
 
                     <div class="col-md-6">
                         <h4>Licencia Posterior</h4>
-                        <img src="<?=$datos['licencia_posterior']?>" alt="Licencia de Conducción posterior <?=$datos["nombre_persona"]." ".$datos["apellido_persona"] ?>" srcset="">
+                        <img src="/../../<?=$datos['licencia_posterior']?>" alt="Licencia de Conducción posterior <?=$datos["nombre_persona"]." ".$datos["apellido_persona"] ?>" srcset="">
                     </div> <!-- fin col -->
 
                 </div><!-- fin row -->
@@ -154,12 +167,12 @@ $rutas -> inicio();
                 <div class="row text-center"> <!-- fila para documentos de a 2 columnas -->
                     <div class="col-md-6">
                         <h4>Matricula frontal</h4>
-                        <img src="<?=$datos['matricula_frontal']?>" alt="Matricula frontal <?=$datos["nombre_persona"]." ".$datos["apellido_persona"] ?>" srcset="">
+                        <img src="/../../<?=$datos['matricula_frontal']?>" alt="Matricula frontal <?=$datos["nombre_persona"]." ".$datos["apellido_persona"] ?>" srcset="">
                     </div> <!-- fin col -->
 
                     <div class="col-md-6">
                         <h4>Matricula Posterior</h4>
-                        <img src="<?=$datos['matricula_posterior']?>" alt="Matricula posterior <?=$datos["nombre_persona"]." ".$datos["apellido_persona"] ?>" srcset="">
+                        <img src="/../../<?=$datos['matricula_posterior']?>" alt="Matricula posterior <?=$datos["nombre_persona"]." ".$datos["apellido_persona"] ?>" srcset="">
                     </div> <!-- fin col -->
 
                 </div><!-- fin row -->
@@ -167,19 +180,30 @@ $rutas -> inicio();
                 <div class="row text-center"> <!-- fila para documentos de a 2 columnas -->
                     <div class="col-md-6">
                         <h4>SOAT</h4>
-                        <img src="<?=$datos['soat']?>" alt="Poliza Soat <?=$datos["nombre_persona"]." ".$datos["apellido_persona"] ?>" srcset="">
+                        <img src="/../../<?=$datos['soat']?>" alt="Poliza Soat <?=$datos["nombre_persona"]." ".$datos["apellido_persona"] ?>" srcset="">
                     </div> <!-- fin col -->
 
                     <div class="col-md-6">
                         <h4>Revisión Tecnomecanica</h4>
-                        <img src="<?=$datos['tecnicomecanica']?>" alt="Revisión Tecnicomecanica <?=$datos["nombre_persona"]." ".$datos["apellido_persona"] ?>" srcset="">
+                        <img src="/../../<?=$datos['tecnicomecanica']?>" alt="Revisión Tecnicomecanica <?=$datos["nombre_persona"]." ".$datos["apellido_persona"] ?>" srcset="">
                     </div> <!-- fin col -->
 
                 </div><!-- fin row -->
+                <br>
+                
+                <div class="row justify-content-center">
+                    <div class="col col-sm-4"></div>
 
+                    <div class="col col-sm-4 text-center">
+                        <a href="../Vista/inicio.php">
+                            <input  type="button" class="btn btn-primary" value="Volver al inicio">
+                        </a>                                
+                    </div>
 
+                    <div class="col col-sm-4"></div>                    
+                </div>
 
-            </div>
+            </div><!-- fin container -->
     </main>
     
     <script src="../Vista/js/loading.js"></script>

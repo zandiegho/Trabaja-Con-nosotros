@@ -10,7 +10,3 @@ $rutas = new ControladorVistas();
 
 $rutas -> inicio(); 
 ?>
-
-
-
-

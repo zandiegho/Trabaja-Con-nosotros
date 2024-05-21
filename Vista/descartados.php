@@ -23,12 +23,14 @@ require_once "../Controlador/postulados.controlador.php";
     <main>
         <div class="container">
 
-            <h1>Usuarios Registrados</h1>
+            <h1>Usuarios Descartados</h1>
 
             <p>
-                Aqui esta la lista de los ultimos usuarios Registrados en la plataforma para trabajar con Vinser.
+                Aqui esta la lista de los ultimos usuarios Registrados y descartados en la plataforma para trabajar con Vinser.
                 <br>
-                Puedes utilizar el enlace al final para conocer mas el detalle y los documentos del usuarios
+                Puedes utilizar el boton VER para conocer mas el detalle y los documentos del usuarios 
+                <br>
+                o puedes utilizar el boton volver a incluir para incluirlo nuevamente en la lista de postulados pendientes
             </p>
 
 
@@ -49,7 +51,7 @@ require_once "../Controlador/postulados.controlador.php";
                 <tbody class="table-group-divider" id="tabla-cuerpo">
                     <!-- Crear una fila por cada registro -->
                     <!-- Obtenemos la matriz postulados para pintarla en el HTML -->
-                    <?php foreach ($matrizPostulados as $key) { ?>
+                    <?php foreach ($matrizPostuladosDescartadosView as $key) { ?>
                         <tr>
                             <td><?php echo $key['id_persona']; ?></td>
                             <td><?php echo $key['nombre_persona']; ?></td>
@@ -64,8 +66,8 @@ require_once "../Controlador/postulados.controlador.php";
                                     <button type="submit" class="btn btn-primary" data-toggle="modal">VER</button>
                                 </a>
                                 
-                                <a href="../Controlador/postula.php?op=descartar&id=<?php echo $key['id_persona']; ?>" >
-                                    <button type="submit" class="btn btn-danger"><i class="fa fa-eye"></i>DESCARTAR</button>
+                                <a href="../Controlador/postula.php?op=no-descartar&id=<?php echo $key['id_persona']; ?>" >
+                                    <button type="submit" class="btn btn-warning"><i class="fa fa-eye"></i>Volver a Incluir </button>
                                 </a>
 
                             </td>

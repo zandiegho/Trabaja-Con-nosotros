@@ -1,15 +1,19 @@
 <?php
 
+//llamamos solicitud a requerir postulados.controlador
 require_once "../Controlador/postulados.controlador.php";
 
+//evaluamos las rutas y separamos por el caracter /
 $arrayRutas = explode("/", $_SERVER['REQUEST_URI']);
 
-//echo "<pre>"; print_r($arrayRutas); echo "<pre>";
+//obtenemos el ultimo elemento del array
 $lastArray = end($arrayRutas);
+//echo "<pre>"; print_r($arrayRutas); echo "<pre>";
 //echo "ultimo elemento del array : $lastArray <br/>";
 
-
+//creamos un switch para dodne se valida el ultimo array
 switch ($lastArray){
+    
     case "inicio.html":
         $persona = new ControladorPostulados();
         $persona -> index();    
@@ -61,64 +65,8 @@ switch ($lastArray){
         return;
 
         break;
-
-    
                 
 }
-
-/* if(count(array_filter($arrayRutas))  < 5 ){
-
-    #============================================
-    #CUANDO NO SE HACE NINGUNA PETRICION A LA API 
-    #============================================
-    
-    $persona = new ControladorPostulados();
-    $persona -> index();    
-
-    $json = array(
-        "Detalle" => "NO HAY PETICION ESPECIAL VISTA 1 INDEX"
-    );
-
-    echo json_encode($json, true);
-
-    return; 
-
-
-}else if($lastArray == 'postulados.php'){
-
-    #==========================================
-    #CUANDO SE HACE PETICION DESDE POSTULADOS
-    #===========================================
-
-    if (isset($_SERVER['REQUEST_METHOD']) && ($_SERVER['REQUEST_METHOD']) == "GET" ){
-        
-
-        $json = array(
-            "Detalle" => "Peticion Postulados"
-        );
-        
-        #echo json_encode($json, true);    
-        return;
-
-        $persona = new ControladorPostulados();
-        $persona -> index();   
-
-        require_once "postulados.php";
-
-    }
-    
-}else{
-
-     $json = array(
-        "Detalle" => "Error no Encontrado 2"
-    );
-
-    echo json_encode($json, true);
-
-    return; 
-
-} */
-
 
 ?>
 

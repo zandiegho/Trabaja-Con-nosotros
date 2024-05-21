@@ -22,9 +22,15 @@ switch($_GET['op']){
         require_once "../Vista/postulados.php";
     break;
     
-    case "update":
+    case "descartar":
         $id = $_GET['id'];
         $datos = $postuladoNew->descartar($id);
+        #echo json_encode("Actualizado Correctamente");
+    break;
+
+    case "no-descartar":
+        $id = $_GET['id'];
+        $datos = $postuladoNew->NoDescartar($id);
         #echo json_encode("Actualizado Correctamente");
     break;
 
@@ -35,7 +41,7 @@ switch($_GET['op']){
 
         include "../Vista/details.php";
         ?> <hr> <?php
-        include "../Vista/postulados.php";
+        //include "../Vista/postulados.php";
         
     break;
 

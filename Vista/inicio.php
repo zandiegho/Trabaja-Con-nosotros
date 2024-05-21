@@ -22,34 +22,41 @@ require_once "../Controlador/postulados.controlador.php";
     <main>
         <div class="container">
             <div class="tittle text-center" style="margin: 12px;">
-                <H1>Bienvenido</H1>
+                <H1>Bienvenido al portal de postulados</H1>
             </div>
+            <br>
 
             <div class="row text-center">
                 <div class="col">
+                    <!-- VER TODAS LAS POSTULACIONES -->
                     <h4>Todas las Postulaciones</h4>
                     <a href="postulados.php" class="btn btn-warning btn-md active" role="button" aria-pressed="true">Ver Todos</a>
                 </div>
 
                 <div class="col">
+                    <!-- VER POSTULADOS POSIBLES -> NO DESCARTADOS -->
                     <h4>Postulados posibles</h4>
                     <a href="postulados.php" class="btn btn-primary btn-md active" role="button" aria-pressed="true">Ver</a>
 
                 </div>
 
                 <div class="col">
+                    <!-- VER POSTULADOS DESCARTADOS -->
                     <h4>Postulados descartados</h4>
-                    <a href="postulados.php" class="btn btn-danger btn-md active" role="button" aria-pressed="true">Ver</a>
+                    <a href="descartados.php" class="btn btn-danger btn-md active" role="button" aria-pressed="true">Ver</a>
                 </div>
 
                 <!-- texto que indique que se pueden cosultar los disitontos tipos de postulados a trabajar con nosotoros -->
 
+                
+
             </div> <!-- fin row -->
 
+            <br>
 
             <div class="table">
-                <!-- create table with 3 rows and each row whit 3 columns -->
                 <table class="table table-striped table-hover">
+                    <!-- ENCABEZADOS DE TABLAS -->
                     <thead>
                         <tr>
                             <th scope="col">TIPO VISTA</th>
@@ -58,14 +65,15 @@ require_once "../Controlador/postulados.controlador.php";
                             <th scope="col">ACCION</th>
                         </tr>
                     </thead>
+
                     <tbody class="table-group-divider" id="tabla-cuerpo">
-                        <!-- <?php #foreach ($matrizPostulados as $key) { ?> -->
+                        <!-- <?php #foreach ($matrizPostulados as $key) { ?> -->  <!-- VERIFICAR -->
                             <tr>
                                 <td>Todos</td>
                                 <td>Todos los postulados</td>
-                                <td> {{total postulados}}</td>
+                                <td> <?php echo $matrizPostuladosTotales ?>  </td>
                                 <td>                           
-                                    <a href="postula.php?op=view&id=<?php echo $key['id_persona']; ?>" >
+                                    <a href="postulados.php" >
                                         <button type="submit" class="btn btn-primary" data-toggle="modal">VER</button>
                                     </a>    
                                 </td>
@@ -79,9 +87,10 @@ require_once "../Controlador/postulados.controlador.php";
                             <tr>
                                 <td>Aceptados</td>
                                 <td>Postulados pendientes</td>
-                                <td> {{total postulados}}</td>
+                                <td> <?php  echo $matrizNoDescartados ?>  </td>
+
                                 <td>                           
-                                    <a href="postula.php?op=view&id=<?php echo $key['id_persona']; ?>" >
+                                    <a href="postulados.php" >
                                         <button type="submit" class="btn btn-primary" data-toggle="modal">VER</button>
                                     </a>    
                                 </td>
@@ -95,9 +104,9 @@ require_once "../Controlador/postulados.controlador.php";
                             <tr>
                                 <td>Descartados</td>
                                 <td>Postulados Descartados</td>
-                                <td> { <?php echo $matrizDescartados ?>  }</td>
+                                <td> <?php echo $matrizDescartados ?> </td>
                                 <td>                           
-                                     <a href="postula.php?op=view&id=<?php echo $key['id_persona']; ?>" >
+                                     <a href="descartados.php">
                                         <button type="submit" class="btn btn-primary" data-toggle="modal">VER</button>
                                     </a>    
                                 </td>
